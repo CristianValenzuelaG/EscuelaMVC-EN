@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Catalogo de alumnos";
+    List<EscuelaMVC.Models.Alumno> datos = ViewBag.datos;<!--Esto lo saco desde el controlador de HomeController-->
+}
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Catalogos de alumnos</div>
+        <div class="panel-body">
+            <table class="table table-condensed col-xs-12">
+                <thead>
+                    <tr>
+                        <td class="col-xs-2 text-center">Matricula</td>
+                        <td class="col-xs-4">Apellidos</td>
+                        <td class="col-xs-3">Nombre</td>
+                        <td class="col-xs-2">Grupo</td>
+                        <td class="col-xs-1"></td>
+                    </tr>
+                </thead>
+
+                    <!--Aqui se utiliza el forech para rellenar el cuadro-->
+                @foreach (EscuelaMVC.Models.Alumno item in datos)
+                {
+                    <tr>
+                        <td>@item.pkAlumno</td>
+                        <td>@item.sApellido</td>
+                        <td>@item.sNombre</td>
+                        <td>@item.sGrupo</td>
+                        <td>
+                            <a href="~/Home/VerDetalle/@item.pkAlumno">
+                                <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+<h2>Index</h2>
+
