@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Formulario de Actualizacion";
+    EscuelaMVC.Models.Alumno Dato = ViewBag.id;
+}
+
+<div class="container">
+  @using (Html.BeginForm("Actualizar","Home",FormMethod.Get))
+  {
+      <input type="hidden" name="txtId" value="@Dato.pkAlumno"/>
+
+      <div class="form-group">
+          <label class="control-label col-xs-3">Nombre</label>
+          <div class="col-xs-9">
+              <input type="text" class="form-control" placeholder="@Dato.sNombre" value="@Dato.sNombre" name="txtNombre">
+          </div>
+      </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-xs-3">Apellidos</label>
+            <div class="col-xs-9">
+                <input type="text" class="form-control" placeholder="@Dato.sApellido" value="@Dato.sApellido" name="txtApellido">
+            </div>
+          </div>
+
+      <div class="form-group">
+          <label class="control-label col-xs-3">Grupo</label>
+          <div class="col-xs-9">
+              <input type="text" class="form-control" placeholder="@Dato.sGrupo" value="@Dato.sGrupo" name="txtGrupo">
+          </div>
+      </div>
+    <br />
+      <div class="form-group">
+          <div class="col-xs-12">
+              <input type="submit" value="Actualizar" class="btn btn-primary"/>
+              <input type="reset" value="Limpiar" class="btn btn-default" />
+          </div>
+      </div>
+  }
+</div>
+
+<h2>Actualizando</h2>
